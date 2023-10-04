@@ -34,7 +34,7 @@ export const mastercardsessionid=catchasyncerror(async(req,res,next)=>{
       };
     
     
-    const paymentData=await axios.post("https://test-nbm.mtf.gateway.mastercard.com/api/rest/version/74/merchant/IBTSTEST01/session",{
+    const paymentData=await axios.post("https://nbm.gateway.mastercard.com/api/rest/version/75/merchant/ITINERTRIP01/session",{
         
             apiOperation:"INITIATE_CHECKOUT",
             interaction:{
@@ -42,7 +42,7 @@ export const mastercardsessionid=catchasyncerror(async(req,res,next)=>{
                 returnUrl:returnurl+orderid,
                 merchant:{
                     name:"ITINERTRIP",
-                    url:"http://localhost:3000/"
+                    url:"https:/itinertrip.com//"
                 }
         
             },
@@ -98,7 +98,7 @@ export const getordercontroller=catchasyncerror(async(req,res,next)=>{
         "Content-Type": "application/json",
       };
 
-      const orderdata=await axios.get(`https://test-nbm.mtf.gateway.mastercard.com/api/rest/version/74/merchant/IBTSTEST01/order/${orderid}`,{
+      const orderdata=await axios.get(`https://nbm.gateway.mastercard.com/api/rest/version/75/merchant/ITINERTRIP01/order/${orderid}`,{
         headers:authHeader
       });
 
